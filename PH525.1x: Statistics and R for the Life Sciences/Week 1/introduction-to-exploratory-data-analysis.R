@@ -50,7 +50,7 @@ for (i in 1:9) {
   qqline(x)
 }
 
-#examining positive(4) and negative(9) skews in histograms
+#examining positive(4) and negative(9) skews with histograms
 hist(dat[,4])
 hist(dat[,9])
 
@@ -62,3 +62,17 @@ qqline(exec.pay)
 
 #creating a boxplot
 boxplot(exec.pay, ylab = '10,000s of dollars', ylim = c(0, 400))
+
+#Boxplot Exercises #1
+head(InsectSprays)
+boxplot(split(InsectSprays$count, InsectSprays$spray))
+
+#Boxplot Exercises #2
+library(dplyr)
+data(nym.2002, package="UsingR")
+par(mfrow=c(1,3))
+males <- filter(nym.2002, gender=="Male") %>% select(time) %>% unlist
+females <- filter(nym.2002, gender=="Female") %>% select(time) %>% unlist
+boxplot(females, males)
+hist(females,xlim=c(range( nym.2002$time)))
+hist(males,xlim=c(range( nym.2002$time)))
