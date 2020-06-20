@@ -11,7 +11,7 @@ treatment <- dat %>% filter(Diet == 'hf') %>% select(Bodyweight) %>% unlist
 #then after comparing them each other it is obvious that 'hf' Diet made
 #mice weigh more
 
-#they are in statistics called random variable
+#they are observations according to an experiment
 obs <- mean(treatment) - mean(control)
 
 library(downloader)
